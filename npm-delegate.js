@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 var optimist = require('optimist')
 var fallback = require('fallback')
 var http = require('http')

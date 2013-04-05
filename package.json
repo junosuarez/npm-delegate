@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "a hierarchical npm-registry proxy to make private registries easier",
   "main": "npm-delegate.js",
+  "bin": {
+    "npm-delegate": "./npm-delegate.js"
+  },
   "keywords": [
     "npm",
     "registry",
