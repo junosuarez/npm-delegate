@@ -26,16 +26,20 @@ gigabytes of extra disk space you'd need.
     +------------+    'foo'   +--+                     +---------------+
 
 
+## Install
+
+   npm install -g npm-delegate
+
 ## Usage
 
 Run `npm-delegate` somewhere - possibly on the server where you're running
 couchdb for your registry.
 
-    node npm-delegate registry1 registry2 registry3
+    npm-delegate registry1 registry2 registry3
 
 eg
 
-    node npm-delegate -p 1337 http://localhost:5984/registry https://registry.npmjs.org
+    npm-delegate -p 1337 http://localhost:5984/registry https://registry.npmjs.org
 
 setup your npm client:
 
