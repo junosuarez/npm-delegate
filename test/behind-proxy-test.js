@@ -9,11 +9,11 @@ var mocha = require('mocha')
 describe('npm-delegate', function() {
   describe('with proxy specified', function() {
     var proxyRequests = nock('http://localhost:8080')
-      .head('http://registry.npmjs.org:80/thing')
+      .head('http://registry.npmjs.org/thing')
       .reply(404)
-      .head('http://someotherregistry:80/thing')
+      .head('http://someotherregistry/thing')
       .reply(200)
-      .get('http://someotherregistry:80/thing')
+      .get('http://someotherregistry/thing')
       .reply(200, {});
 
     var server = delegate(
@@ -32,7 +32,7 @@ describe('npm-delegate', function() {
   });
 
   describe('with no proxy specified', function() {
-    var registryRequests = nock('http://registry.npmjs.org:80')
+    var registryRequests = nock('http://registry.npmjs.org')
       .head('/thing')
       .reply(200)
       .get('/thing')
@@ -53,7 +53,7 @@ describe('npm-delegate', function() {
   describe('cli', function() {
     var npmDelegate;
 
-    after(function() {
+    afterEach(function() {
       if (npmDelegate) {
         npmDelegate.kill();
       }
