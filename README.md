@@ -67,6 +67,20 @@ no
 *how do I set up my own private registry?*
 read this: [https://github.com/isaacs/npmjs.org](https://github.com/isaacs/npmjs.org)
 
+*What is it doing?*
+Turn on more logging with NODE_DEBUG environment variable:
+     NODE_DEBUG="npm-delegate,request" npm-delegate http://registry.npmjs.org http://internal/registry
+
+*It complains about https certificates!*
+Turn off strict SSL checking:
+     npm-delegate --no-strictssl https://registry.npmjs.org http://internal/registry
+
+*I'm behind a corporate proxy - help!*
+
+   npm-delegate --proxy http://corp:8080 http://registry.npmjs.org http://internal/registry
+
+It will also pick up proxy settings from http_proxy environment variable if set.
+
 ## license
 MIT
 (c) 2012 jden - Jason Denizac <jason@denizac.org>
