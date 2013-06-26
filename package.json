@@ -2,9 +2,13 @@
   "name": "npm-delegate",
   "version": "0.1.0",
   "description": "a hierarchical npm-registry proxy to make private registries easier",
-  "main": "npm-delegate.js",
+  "main": "./lib/delegate.js",
   "bin": {
-    "npm-delegate": "./npm-delegate.js"
+    "npm-delegate": "./lib/cli.js"
+  },
+  "preferGlobal": true,
+  "scripts": {
+    "test": "mocha -R spec"
   },
   "keywords": [
     "npm",
@@ -18,6 +22,14 @@
   "dependencies": {
     "optimist": "~0.3.5",
     "fallback": "~1.0.0",
-    "url2": "0.0.0"
+    "url2": "0.0.0",
+    "request": "~2.21.0"
+  },
+  "devDependencies": {
+    "should": "~1.2.2",
+    "mocha": "~1.10.0",
+    "nock": "~0.18.2",
+    "supertest": "~0.7.0",
+    "sandboxed-module": "~0.2.0"
   }
 }
