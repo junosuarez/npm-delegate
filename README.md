@@ -61,23 +61,26 @@ See also: [how to specify a registry to publish to in your package.json](https:/
 
 ## faqs
 
-*does this run a registry for me?*
+### does this run a registry for me?
 no
 
-*how do I set up my own private registry?*
+### how do I set up my own private registry?
 read this: [https://github.com/isaacs/npmjs.org](https://github.com/isaacs/npmjs.org)
 
-*What is it doing?*
+### What is it doing?
 Turn on more logging with NODE_DEBUG environment variable:
+
      NODE_DEBUG="npm-delegate,request" npm-delegate http://registry.npmjs.org http://internal/registry
 
-*It complains about https certificates!*
+### It complains about https certificates!
 Turn off strict SSL checking:
+
      npm-delegate --no-strictssl https://registry.npmjs.org http://internal/registry
 
-*I'm behind a corporate proxy - help!*
+### I'm behind a corporate proxy - help!
+Calm down:
 
-   npm-delegate --proxy http://corp:8080 http://registry.npmjs.org http://internal/registry
+     npm-delegate --proxy http://corp:8080 http://registry.npmjs.org http://internal/registry
 
 It will also pick up proxy settings from http_proxy environment variable if set.
 
