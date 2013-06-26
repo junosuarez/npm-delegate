@@ -2,14 +2,29 @@ var mocha = require('mocha')
 , should = require('should')
 , child_process = require('child_process')
 , path = require('path')
-, delegate = require('../lib/delegate');
+, supertest = require('supertest')
+, sandbox = require('sandboxed-module');
 
 describe('npm-delegate', function() {
   describe('with no_strict_ssl option', function() {
-    /* can't quite work out how best to test this 
-     * - could use sandboxed-module to load fake request module
-     */
-    it('should pass the strictSSL:false option to request');
+    var requestOptions, delegate = sandbox.require(
+      '../lib/delegate',
+      {
+        requires: {
+          'request': function(options, cb) {
+            requestOptions = options;
+          }
+        }
+      }
+    );
+
+    supertest(
+      delegate([ 'http://registry' ], null, false)
+    ).get('/thing').end();
+    
+    it('should pass the strictSSL:false option to request', function() {
+      requestOptions.strictSSL.should.be.false;
+    });
   });
 
   describe('cli', function() {
