@@ -84,6 +84,11 @@ Calm down:
 
 It will also pick up proxy settings from http_proxy environment variable if set.
 
+## contributors
+
+- jden <jason@denizac.org>
+- Gareth Jones <gareth.jones@sensis.com.au>
+
 ## license
 MIT
 (c) 2012 jden - Jason Denizac <jason@denizac.org>
