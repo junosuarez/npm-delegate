@@ -26,16 +26,20 @@ gigabytes of extra disk space you'd need.
     +------------+    'foo'   +--+                     +---------------+
 
 
+## Install
+
+   npm install -g npm-delegate
+
 ## Usage
 
 Run `npm-delegate` somewhere - possibly on the server where you're running
 couchdb for your registry.
 
-    node npm-delegate registry1 registry2 registry3
+    npm-delegate registry1 registry2 registry3
 
 eg
 
-    node npm-delegate -p 1337 http://localhost:5984/registry https://registry.npmjs.org
+    npm-delegate -p 1337 http://localhost:5984/registry https://registry.npmjs.org
 
 setup your npm client:
 
@@ -57,11 +61,28 @@ See also: [how to specify a registry to publish to in your package.json](https:/
 
 ## faqs
 
-*does this run a registry for me?*
+### does this run a registry for me?
 no
 
-*how do I set up my own private registry?*
+### how do I set up my own private registry?
 read this: [https://github.com/isaacs/npmjs.org](https://github.com/isaacs/npmjs.org)
+
+### What is it doing?
+Turn on more logging with NODE_DEBUG environment variable:
+
+     NODE_DEBUG="npm-delegate,request" npm-delegate http://registry.npmjs.org http://internal/registry
+
+### It complains about https certificates!
+Turn off strict SSL checking:
+
+     npm-delegate --no-strictssl https://registry.npmjs.org http://internal/registry
+
+### I'm behind a corporate proxy - help!
+Calm down:
+
+     npm-delegate --proxy http://corp:8080 http://registry.npmjs.org http://internal/registry
+
+It will also pick up proxy settings from http_proxy environment variable if set.
 
 ## license
 MIT
