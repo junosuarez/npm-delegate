@@ -41,6 +41,12 @@ eg
 
     npm-delegate -p 1337 http://localhost:5984/registry https://registry.npmjs.org
 
+use cluster as a running platform
+
+    npm-delegate --cluster --threshold 3000 -p 1337 http://localhost:5984/registry https://registry.npmjs.org
+
+Note: --threshold option specifies the max number of connection after which the cluster worker will be recycled, byde default 3000.
+
 setup your npm client:
 
     npm do-some-stuff --registry http://your-delegate-host:1337

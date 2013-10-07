@@ -10,6 +10,9 @@
   "scripts": {
     "test": "mocha -R spec"
   },
+  "scripts": {
+    "test": "mocha --ui bdd --reporter spec  ./test"
+  },  
   "keywords": [
     "npm",
     "registry",
@@ -24,7 +27,8 @@
     "optimist": "~0.3.5",
     "fallback": "~1.0.0",
     "url2": "0.0.0",
-    "request": "~2.21.0"
+    "request": "~2.21.0",
+    "cluster2": "0.4.15"
   },
   "devDependencies": {
     "should": "~1.2.2",
