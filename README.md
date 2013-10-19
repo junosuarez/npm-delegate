@@ -47,6 +47,10 @@ use cluster as a running platform
 
 Note: --threshold option specifies the max number of connection after which the cluster worker will be recycled, default is 3000.
 
+use timeout and retry in case of timeout
+
+    npm-delegate --retry 3 --timeout 10000 -p 1337 http://localhost:5984/registry https://registry.npmjs.org
+
 setup your npm client:
 
     npm do-some-stuff --registry http://your-delegate-host:1337
