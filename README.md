@@ -41,6 +41,10 @@ eg
 
     npm-delegate -p 1337 http://localhost:5984/registry https://registry.npmjs.org
 
+use timeout and retry in case of timeout
+
+    npm-delegate --retry 3 --timeout 10000 -p 1337 http://localhost:5984/registry https://registry.npmjs.org
+
 setup your npm client:
 
     npm do-some-stuff --registry http://your-delegate-host:1337
