@@ -1,6 +1,8 @@
 # npm-delegate
 A hierarchical npm-registry proxy to make private registries easier
 
+**Deprecation warning:** Plenty of people are using this with success, but I am no longer supporting it. Consider [Kappa](https://github.com/paypal/kappa), Paypal's fork of `npm-delegate` instead.
+
 npm registries all the way down.
 
 ## wherefore?
